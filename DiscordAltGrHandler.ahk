@@ -19,10 +19,3 @@ Send "!{Down}"
 {
 Send "!{Right}"
 }
-
-
-#HotIf WinActive(" - Opera")
-<^>!m::
-{
-Send "!m"
-}
