@@ -17,3 +17,11 @@ Some programming languages feature heavy use of curly brackets, also referred to
 ### RunKeyLauncher
 
 When writing and testing AHK code in the VSCode programming environment, there currently is no way for VSCode to run your code in the way it runs other programs, since AHKV2 is not particularly well supported as a programming language in most tools. RunKeyLauncher.ahk is a fix for this. When in VSCode, it will detect the F5 keypress (which is the default to run and debug in VSCode) and read the window title to discover what file you are currently in, and run it. It can do this as long as the file is stored in a source file it knows about. The first time this script runs, it creates an RKL-SELFCONFIG file which can be edited in a text editor to add paths to source folders where your AHK scripts are stored. Any script stored in a folder mentioned in the self config path list can be discovered and launched by RKL. Updates set for the future are to separate the multiple source handler out into its own file/library and add GUI support to make it much more usable for non-programmers.
+
+### MultiSourceHandler
+
+Utilities like RunKeyLauncher (above) and LaunchAtStartup (listed below) may need to deal with files located in multiple places. To facilitate this, the MultiSourceHandler was made. Originally, it was built in to RunKeyLauncher, but it has now been separated out as its own library so that it can be implemented by other tools. A GUI for the tool is in development, so eventually end users will never need to manually edit a config file, greatly lowering the barrier to entry.
+
+### LaunchAtStartup
+
+Adding programs to launch at startup is a fiddly process. Launch At Startup allows you do only do this process once - it will run at startup and start any tools you would like it to. Currently, you must provide it with a list of file paths in the LAS-PATHLIST file, but eventually it will implement the MultipleSourceHandler GUI, once that is stable.
